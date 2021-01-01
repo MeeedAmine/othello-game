@@ -1,5 +1,5 @@
 import pygame
-from .constants import BLACK, WHITE, GREEN, GREY, ROWS, COLS, SQUARE_SIZE
+from .constants import BLACK, WHITE, GREEN, ROWS, COLS, SQUARE_SIZE
 from .piece import Piece
 
 pygame.init()
@@ -9,6 +9,7 @@ class Board:
         self.game_field = [[0 for _row in range(ROWS)] for _col in range(COLS)]
         self.create_init_pieces()
     
+    #piece is the stone of a player
     def add_piece(self, row, col, player_color):
         if player_color == 0:
             self.game_field[row][col] = 0
@@ -42,16 +43,17 @@ class Board:
                 if piece != 0:
                     piece.draw_piece(window)
     
-    # def draw_status(self, window):
-    #     surface = pygame.Surface((598,73))
-    #     surface.fill(GREY)
-    #     window.blit(surface,(1,1))
-    #     font = pygame.font.Font('freesansbold.ttf', 30)
-    #     text = font.render("Good Game!", 1, (BLACK))
-    #     window.blit(text, (250, 30))
-    
-    
-    
+  
+    def get_pieces(self, player):
+        """Get the coordinates (x,y) for all pieces on the board of a player"""
+        pieces_cord = []
+        for row in range(ROWS):
+            for col in range(COLS):
+                if self.game_field[row][col]!= 0 and self.game_field[row][col].color == player:
+                    pieces_cord.append([row, col])
+        return pieces_cord
+
+    #TO DO: should be updated
     def count_pieces(self):
         black_pieces = []
         white_pieces = []
