@@ -2,7 +2,7 @@
 Othello or Reversi is a multiplayer board game.
 This project was created using python and its module pygame for the GUI.
 
-![othello](https://user-images.githubusercontent.com/49884057/95615840-285d9e80-0a69-11eb-8bf0-c8492602b4cf.JPG)
+
 ![othello](https://github.com/MeeedAmine/othello-game/blob/master/assets/othello-gif.gif)
 # Required:
 - python 3.x
