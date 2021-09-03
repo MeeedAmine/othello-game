@@ -7,7 +7,7 @@ FPS = 60
 pygame.init()
 surface = pygame.display.set_mode((600, 400))
 
-menu = pygame_menu.Menu(400, 600, 'Welcome to Othello',
+menu = pygame_menu.Menu('Welcome to Othello', 600, 400, 
                        theme=pygame_menu.themes.THEME_DARK )
 
 name = 'Meed Amine' 
@@ -27,12 +27,12 @@ def set_difficulty(value, difficulty):
 def play():
     print(name, player_mode, difficulty_level)
 
-menu.add_text_input('First Player :', default='Meed Amine', onchange=get_name)
+menu.add.text_input('First Player :', default='Meed Amine', onchange=get_name)
 
-menu.add_selector('Playing against :', [('Computer', 1), ('Another Player', 2)], 
+menu.add.selector('Playing against :', [('Computer', 1), ('Another Player', 2)], 
                     onchange=set_player)
                    
-menu.add_selector('Difficulty :', [('Easy', 1), ('Medium', 2), ('Hard', 3)], 
+menu.add.selector('Difficulty :', [('Easy', 1), ('Medium', 2), ('Hard', 3)], 
                             onchange=set_difficulty)
 
 """Here starts the code of the game"""
@@ -65,8 +65,8 @@ def main():
     pygame.quit()
 
 
-menu.add_button('Play', main)
-menu.add_button('Quit', pygame_menu.events.EXIT)
+menu.add.button('Play', main)
+menu.add.button('Quit', pygame_menu.events.EXIT)
 
 
 
